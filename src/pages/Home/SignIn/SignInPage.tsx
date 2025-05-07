@@ -20,11 +20,10 @@ const SignInPage = ({ show, onClose }: { show: boolean; onClose: () => void }) =
 
             elements: {
               footerAction: { display: "none" },
-              footer: {background: "transparent"},
-              socialButtonsBlockButton: {color: "#abffe7", outline: "1px solid #abffe7"},
-              socialButtonsBlockButtonHover: {color: "red", outline: "1px solid #abffe7"},
-              cardBox: {boxShadow: "0 0 0 0", background: "transparent"},
-              
+              footer: { background: "transparent" },
+              socialButtonsBlockButton: { color: "#abffe7", outline: "1px solid #abffe7" },
+              socialButtonsBlockButtonHover: { color: "red", outline: "1px solid #abffe7" },
+              cardBox: { boxShadow: "0 0 0 0", background: "transparent" },
             },
           }}
         />

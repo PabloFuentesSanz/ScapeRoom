@@ -1,14 +1,13 @@
 export interface Game {
-    levels: Level[]
+  levels: Level[];
 }
 
 export interface Level {
-    name: string;
-    seconds: number;
+  name: string;
+  seconds: number;
 }
 
 export interface GameRepository {
-    nextLevel: () => Level;
-    prevLevel: () => Level;
-
+  nextLevel: () => Level;
+  prevLevel: () => Level;
 }
