@@ -1,0 +1,60 @@
+.home__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    background-color: var(--color-primary);
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .crt__bootup {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    z-index: 10;
+    animation: crt-on 1.8s ease-out forwards;
+    transform-origin: center;
+  }
+  @keyframes crt-on {
+    0% {
+      opacity: 1;
+      transform: scaleY(0.02) scaleX(1.5);
+      filter: brightness(300%) blur(4px);
+    }
+    30% {
+      transform: scaleY(0.1) scaleX(1.2);
+      filter: brightness(180%) blur(2px);
+    }
+    60% {
+      transform: scaleY(1.05) scaleX(1);
+      filter: brightness(110%) blur(1px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      filter: none;
+      pointer-events: none;
+    }
+  }
+  
+  
+.home__signin-button{
+    all: unset;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    transition: all 0.2s ease;
+  user-select: none;
+
+}
+
+.home__signin-button:hover{
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}

@@ -1,16 +1,18 @@
 :root {
-  --color-background-primary: #020912;
-  --color-background-secondary: #030303;
-  --color-text: #abffe7;
+  --color-primary: #020912;
+  --color-secondary: #abffe7;
+  --color-tertiary: #030303;
 }
+
 @font-face {
-  font-family: 'Digital-7';
-  src: url('assets/fonts/digital-7.ttf') format('truetype');
+  font-family: "Digital-7";
+  src: url("assets/fonts/digital-7.ttf") format("truetype");
 }
+
 body {
-  background-color: var(--color-background-primary);
-  font-family: 'Digital-7', monospace;
+  background-color: var(--color-primary);
+  font-family: "Digital-7", monospace;
   letter-spacing: 0.2em;
   font-size: 3rem;
-  color: var(--color-text)
+  color: var(--color-secondary);
 }
