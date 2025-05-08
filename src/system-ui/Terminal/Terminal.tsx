@@ -1,9 +1,30 @@
+import { useRef } from "react";
+import { useGame } from "../../contexts/GameContext";
+import { useSequentialTypewriter } from "../../hooks/useSequentialTypewriter";
 import "./Terminal.css";
 
 interface TerminalProps {
-  history: string[];
+  onSubmit: () => void;
 }
-export const Terminal: React.FC<TerminalProps> = ({ history }) => {
+export const Terminal: React.FC<TerminalProps> = ({ onSubmit }) => {
+  const { availablePuzzles, currentHistory } = useGame();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const typedLines = useSequentialTypewriter(currentHistory, 50);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      const inputValue = inputRef.current?.value.trim().toLowerCase();
+      if (inputValue === "yes") {
+        e.preventDefault();
+        onSubmit(
+          // @ts-ignore: estás usando un handler que espera un FormEvent, así que puedes ignorar aquí
+          { preventDefault: () => {} }
+        );
+        if (inputRef.current) inputRef.current.value = "";
+      }
+    }
+  };
   return (
     <div className="terminal__container">
       <div className="terminal__header">
@@ -22,7 +43,7 @@ export const Terminal: React.FC<TerminalProps> = ({ history }) => {
           <p>Todos los comandos están siendo monitorizados</p>
           <p>---------------------------------</p>
         </div>
-        {history.map((line, index) => (
+        {typedLines.map((line, index) => (
           <div
             key={index}
             className={`terminal__line ${line.startsWith(">") ? "terminal__command" : ""}`}
@@ -30,15 +51,21 @@ export const Terminal: React.FC<TerminalProps> = ({ history }) => {
             {line}
           </div>
         ))}
+        {availablePuzzles.map((puzzle, index) => (
+          <div key={index} className={`terminal__line ${true} ? "terminal__command" : ""}`}>
+            {puzzle.name}
+          </div>
+        ))}
         <div className="terminal__input-line">
           <span className="terminal__prompt">&gt;</span>
           <input
+            ref={inputRef}
             type="text"
             className="terminal__input"
             autoFocus
             spellCheck="false"
+            onKeyDown={handleKeyDown}
           />
-          <span className={`terminal__cursor`}></span>
         </div>
       </div>
     </div>

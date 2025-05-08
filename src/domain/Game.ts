@@ -1,13 +1,22 @@
 export interface Game {
-  levels: Level[];
+  puzzles: Puzzle[];
+  dialogs: NarrationDialogs;
 }
 
-export interface Level {
+export interface Puzzle {
+  id: string;
   name: string;
-  seconds: number;
+  description: string[];
 }
 
-export interface GameRepository {
-  nextLevel: () => Level;
-  prevLevel: () => Level;
+export enum DialogTypes {
+  INTRO = "intro",
+  BRIEFING = "briefing",
+  FAILURE = "failure",
+  SUCCESS = "success",
+  ENDING = "ending",
 }
+
+export type NarrationDialogs = {
+  [key in DialogTypes]: string[];
+};

@@ -9,7 +9,7 @@
 .typewriter__text {
   position: relative;
   color: #abffe7;
-  line-height: 1.2;
+  line-height: 1.05;
   letter-spacing: 0.05em;
   animation: glitchSkew 0.9s infinite linear alternate-reverse;
   user-select: none;

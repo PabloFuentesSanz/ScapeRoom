@@ -97,15 +97,6 @@
 .terminal__input::placeholder {
   color: rgba(171, 255, 231, 0.5);
 }
-.terminal__cursor {
-  position: absolute;
-  width: 10px;
-  height: 20px;
-  background-color: var(--color-secondary);
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
 @keyframes terminal-on {
   0% {
