@@ -1,7 +1,12 @@
-import AppRouter  from "./routes/AppRouter";
+import { GameProvider } from "./contexts/GameContext";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return <AppRouter  />;
+  return (
+    <GameProvider>
+      <AppRouter />
+    </GameProvider>
+  );
 }
 
 export default App;

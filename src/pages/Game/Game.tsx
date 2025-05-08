@@ -1,14 +1,26 @@
 import { SignOutButton } from "@clerk/clerk-react";
 import { Terminal } from "../../system-ui/Terminal/Terminal";
-import { mainMenuDialog } from "../../assets/dialogs/mainMenuDialog";
-
+import "./Game.css";
+import { useGlitch } from "../../hooks/useGlitch";
+import { useEffect } from "react";
+import { useGame } from "../../contexts/GameContext";
+import { narrationDialogs } from "../../dialogs/dialogs";
 const Game = () => {
-  const dialogHistory = mainMenuDialog;
+  const { glitchEffect, triggerGlitch } = useGlitch(200);
+  const { setCurrentHistory } = useGame();
 
+  useEffect(() => {
+    triggerGlitch();
+  }, []);
+
+  const handleSubmit = () => {
+    setCurrentHistory(narrationDialogs().briefing);
+  };
   return (
-    <div>
+    <div className="game__container">
       <SignOutButton />
-      <Terminal history={dialogHistory} />
+      {glitchEffect && <div className="glitch-overlay"></div>}
+      <Terminal onSubmit={handleSubmit} />
     </div>
   );
 };

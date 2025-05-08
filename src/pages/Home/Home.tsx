@@ -17,7 +17,9 @@ const Home = () => {
       {!poweredOn && <div className="crt__bootup" />}
       {poweredOn && (
         <>
-          <TypewriterText text="Sistema Clerk™" />
+          <h1>
+            <TypewriterText text="Sistema Clerk™" />
+          </h1>
           <button className="home__signin-button" onClick={() => setShowLogin(true)}>
             Iniciar Evaluacion
           </button>
