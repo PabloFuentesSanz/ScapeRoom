@@ -1,6 +1,5 @@
 import { SignIn } from "@clerk/clerk-react";
 import "./SignInPage.css";
-import { ROUTES } from '../../../routes/routes';
 
 const SignInPage = ({ show, onClose }: { show: boolean; onClose: () => void }) => {
   if (!show) return null;
