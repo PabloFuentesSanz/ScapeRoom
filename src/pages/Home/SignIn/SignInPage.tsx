@@ -8,8 +8,7 @@ const SignInPage = ({ show, onClose }: { show: boolean; onClose: () => void }) =
     <div className="modal__overlay" onClick={onClose}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <SignIn
-          routing="path"
-          path="/"
+          routing="hash"
           appearance={{
             variables: {
               colorPrimary: "#abffe7",
@@ -19,7 +18,6 @@ const SignInPage = ({ show, onClose }: { show: boolean; onClose: () => void }) =
             },
 
             elements: {
-              footerAction: { display: "none" },
               footer: { background: "transparent" },
               socialButtonsBlockButton: { color: "#abffe7", outline: "1px solid #abffe7" },
               socialButtonsBlockButtonHover: { color: "red", outline: "1px solid #abffe7" },
