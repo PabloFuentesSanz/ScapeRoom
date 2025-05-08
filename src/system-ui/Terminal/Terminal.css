@@ -1,0 +1,158 @@
+.terminal__container {
+  width: 90%;
+  height: 100%;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  letter-spacing: 0.15em;
+  box-shadow: 0 0 10px rgba(171, 255, 231, 0.3);
+}
+
+.terminal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-tertiary);
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.terminal__title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.terminal__buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal__button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal__button--red {
+  background-color: #ff5f56;
+  border: 1px solid #e0443e;
+}
+
+.terminal__button--yellow {
+  background-color: #ffbd2e;
+  border: 1px solid #dea123;
+}
+
+.terminal__button--green {
+  background-color: #27c93f;
+  border: 1px solid #1aab29;
+}
+
+.terminal__content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.terminal__init {
+  color: #8f8f8f;
+  margin-bottom: 1rem;
+}
+
+.terminal__init p {
+  margin: 0.2rem 0;
+}
+
+.terminal__input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.terminal__prompt {
+  color: #abffe7;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.terminal__input {
+  background-color: transparent;
+  color: #abffe7;
+  font-family: "Digital-7", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+.terminal__input::placeholder {
+  color: rgba(171, 255, 231, 0.5);
+}
+.terminal__cursor {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background-color: var(--color-secondary);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes terminal-on {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.terminal__container {
+  animation: terminal-on 0.8s ease-out forwards;
+}
+
+.terminal__container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(171, 255, 231, 0.3);
+  z-index: 3;
+  animation: scan-terminal 4s linear infinite;
+}
+
+@keyframes scan-terminal {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.terminal__line {
+  margin: 0.3rem 0;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.terminal__command {
+  color: yellow;
+}
